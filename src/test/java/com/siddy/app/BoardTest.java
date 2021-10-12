@@ -53,7 +53,7 @@ public class BoardTest {
         gameBoard.makeMove(0,0, "X");
         gameBoard.makeMove(0,1, "X");
         gameBoard.makeMove(0,2, "X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class BoardTest {
         gameBoard.makeMove(1,0,"X");
         gameBoard.makeMove(1,1,"X");
         gameBoard.makeMove(1,2,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class BoardTest {
         gameBoard.makeMove(2,0,"X");
         gameBoard.makeMove(2,1,"X");
         gameBoard.makeMove(2,2,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -77,7 +77,7 @@ public class BoardTest {
         gameBoard.makeMove(2,0,"X");
         gameBoard.makeMove(2,1,"X");
         gameBoard.makeMove(2,2,"O");
-        assertFalse(gameBoard.hasWon());
+        assertFalse(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class BoardTest {
         gameBoard.makeMove(0,0,"X");
         gameBoard.makeMove(1,0,"X");
         gameBoard.makeMove(2,0,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class BoardTest {
         gameBoard.makeMove(0,1,"X");
         gameBoard.makeMove(1,1,"X");
         gameBoard.makeMove(2,1,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class BoardTest {
         gameBoard.makeMove(0,2,"X");
         gameBoard.makeMove(1,2,"X");
         gameBoard.makeMove(2,2,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class BoardTest {
         gameBoard.makeMove(0,0,"X");
         gameBoard.makeMove(1,1,"X");
         gameBoard.makeMove(2,2,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
     @Test
@@ -117,7 +117,22 @@ public class BoardTest {
         gameBoard.makeMove(0,2,"X");
         gameBoard.makeMove(1,1,"X");
         gameBoard.makeMove(2,0,"X");
-        assertTrue(gameBoard.hasWon());
+        assertTrue(gameBoard.hasWon("X"));
     }
 
+    @Test
+    public void checkPlayer2Wins(){
+        gameBoard.makeMove(0,0,"O");
+        gameBoard.makeMove(0,1,"O");
+        gameBoard.makeMove(0,2,"O");
+        assertTrue(gameBoard.hasWon("O"));
+    }
+
+    @Test
+    public void checkPlayer2Diagonal(){
+        gameBoard.makeMove(0,2,"O");
+        gameBoard.makeMove(1,1,"O");
+        gameBoard.makeMove(2,0,"O");
+        assertTrue(gameBoard.hasWon("O"));
+    }
 }

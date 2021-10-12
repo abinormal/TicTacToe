@@ -23,46 +23,46 @@ public class Board {
         return false;
     }
 
-    public boolean hasWon() {
+    public boolean hasWon(String player) {
         // Horizontal
-        int countXTop = 0;
-        int countXMiddle = 0;
-        int countXBottom = 0;
+        int countTop = 0;
+        int countMiddle = 0;
+        int countBottom = 0;
         for (int i = 0; i < gameBoard.length; i++) {
-            if (gameBoard[0][i].equals("X")) {
-                countXTop++;
+            if (gameBoard[0][i].equals(player)) {
+                countTop++;
             }
-            if (gameBoard[1][i].equals("X")) {
-                countXMiddle++;
+            if (gameBoard[1][i].equals(player)) {
+                countMiddle++;
             }
-            if (gameBoard[2][i].equals("X")) {
-                countXBottom++;
+            if (gameBoard[2][i].equals(player)) {
+                countBottom++;
             }
         }
         // Vertical
-        int countXLeft = 0;
-        int countXCenter = 0;
-        int countXRight = 0;
+        int countLeft = 0;
+        int countCenter = 0;
+        int countRight = 0;
         for (String[] strings : gameBoard) {
-            if (strings[0].equals("X")) {
-                countXLeft++;
+            if (strings[0].equals(player)) {
+                countLeft++;
             }
-            if (strings[1].equals("X")) {
-                countXCenter++;
+            if (strings[1].equals(player)) {
+                countCenter++;
             }
-            if (strings[2].equals("X")) {
-                countXRight++;
+            if (strings[2].equals(player)) {
+                countRight++;
             }
         }
         // Diagonal
-        if (gameBoard[1][1].equals("X")) {
-            if (gameBoard[0][0].equals("X") && gameBoard[2][2].equals("X") ||
-                    gameBoard[0][2].equals("X") && gameBoard[2][0].equals("X")) {
+        if (gameBoard[1][1].equals(player)) {
+            if (gameBoard[0][0].equals(player) && gameBoard[2][2].equals(player) ||
+                    gameBoard[0][2].equals(player) && gameBoard[2][0].equals(player)) {
                 return true;
             }
         }
 
-        return countXTop == 3 || countXMiddle == 3 || countXBottom == 3 ||
-                countXLeft == 3 || countXCenter == 3 || countXRight == 3;
+        return countTop == 3 || countMiddle == 3 || countBottom == 3 ||
+                countLeft == 3 || countCenter == 3 || countRight == 3;
     }
 }
