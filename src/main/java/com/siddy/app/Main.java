@@ -38,8 +38,11 @@ public class Main {
             System.out.print("Your go " + player +": ");
             int[] move = getCMDNumbers();
             if (board.makeMove(move[0], move[1], player)) {
+                // Check for game finish
                 if (board.hasWon(player)) {
                     throw new Exception("Congratulations " + player + " you are the winner!");
+                } else if (board.isFullBoard()) {
+                    throw new Exception("Draw!");
                 }
                 return;
             } else {
@@ -55,7 +58,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return inputString;
+        return inputString.strip();
     }
 
     private static int[] getCMDNumbers() {
@@ -63,7 +66,7 @@ public class Main {
         boolean hasSize = false;
         do {
             size = getCommand();
-            if (!size.matches("^[0-2]+( [0-2]+)")) System.out.println("Must be two numbers 0-2 separated by a single space.");
+            if (!size.matches("^[0-2]( [0-2])")) System.out.println("Expecting two numbers 0-2 separated by a single space.");
             else hasSize = true;
         } while (!hasSize);
         String[] pSize = size.split(" ");
