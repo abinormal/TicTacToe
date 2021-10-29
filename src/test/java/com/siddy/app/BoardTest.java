@@ -137,6 +137,20 @@ public class BoardTest {
     }
 
     @Test
+    public void checkFullBoard(){
+        gameBoard.makeMove(0,0,"O");
+        gameBoard.makeMove(0,1,"X");
+        gameBoard.makeMove(0,2,"O");
+        gameBoard.makeMove(1,0,"X");
+        gameBoard.makeMove(1,1,"O");
+        gameBoard.makeMove(1,2,"X");
+        gameBoard.makeMove(2,1,"O");
+        gameBoard.makeMove(2,0,"X");
+        gameBoard.makeMove(2,2,"O");
+        assertTrue(gameBoard.isFullBoard());
+    }
+
+    @Test
     public void checkResetBoard(){
         gameBoard.makeMove(0,2,"O");
         gameBoard.makeMove(0,1,"X");

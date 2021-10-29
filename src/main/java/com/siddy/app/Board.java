@@ -67,4 +67,16 @@ public class Board {
         return countTop == 3 || countMiddle == 3 || countBottom == 3 ||
                 countLeft == 3 || countCenter == 3 || countRight == 3;
     }
+
+    public boolean isFullBoard(){
+        for (String[] row : gameBoard) {
+            for (String s : row) {
+                if (s.equals(" ")){
+                    // Still spaces on the board
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
