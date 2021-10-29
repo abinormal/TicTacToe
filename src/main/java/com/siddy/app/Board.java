@@ -2,9 +2,23 @@ package com.siddy.app;
 
 public class Board {
 
-    private final String[][] gameBoard;
+    private String[][] gameBoard = new String[][]{{" ", " ", " "},
+            {" ", " ", " "},
+            {" ", " ", " "}};
 
-    public Board() {
+    public void printBoard() {
+        String line = "+---------+---------+---------+";
+        String print = line +"\n"+
+                "|    "+gameBoard[0][0]+"    |    "+gameBoard[0][1]+"    |    "+gameBoard[0][2]+"    |"+"\n"+
+                line +"\n"+
+                "|    "+gameBoard[1][0]+"    |    "+gameBoard[1][1]+"    |    "+gameBoard[1][2]+"    |"+"\n"+
+                line +"\n"+
+                "|    "+gameBoard[2][0]+"    |    "+gameBoard[2][1]+"    |    "+gameBoard[2][2]+"    |"+"\n"+
+                line;
+        System.out.println(print);
+    }
+
+    public void resetBoard(){
         gameBoard = new String[][]{{" ", " ", " "},
                 {" ", " ", " "},
                 {" ", " ", " "}};
@@ -29,30 +43,18 @@ public class Board {
         int countMiddle = 0;
         int countBottom = 0;
         for (int i = 0; i < gameBoard.length; i++) {
-            if (gameBoard[0][i].equals(player)) {
-                countTop++;
-            }
-            if (gameBoard[1][i].equals(player)) {
-                countMiddle++;
-            }
-            if (gameBoard[2][i].equals(player)) {
-                countBottom++;
-            }
+            if (gameBoard[0][i].equals(player)) countTop++;
+            if (gameBoard[1][i].equals(player)) countMiddle++;
+            if (gameBoard[2][i].equals(player)) countBottom++;
         }
         // Vertical
         int countLeft = 0;
         int countCenter = 0;
         int countRight = 0;
         for (String[] strings : gameBoard) {
-            if (strings[0].equals(player)) {
-                countLeft++;
-            }
-            if (strings[1].equals(player)) {
-                countCenter++;
-            }
-            if (strings[2].equals(player)) {
-                countRight++;
-            }
+            if (strings[0].equals(player)) countLeft++;
+            if (strings[1].equals(player)) countCenter++;
+            if (strings[2].equals(player)) countRight++;
         }
         // Diagonal
         if (gameBoard[1][1].equals(player)) {

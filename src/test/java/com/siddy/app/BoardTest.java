@@ -135,4 +135,15 @@ public class BoardTest {
         gameBoard.makeMove(2,0,"O");
         assertTrue(gameBoard.hasWon("O"));
     }
+
+    @Test
+    public void checkResetBoard(){
+        gameBoard.makeMove(0,2,"O");
+        gameBoard.makeMove(0,1,"X");
+        gameBoard.makeMove(1,1,"O");
+        gameBoard.makeMove(2,1,"X");
+        gameBoard.makeMove(2,0,"O");
+        gameBoard.resetBoard();
+        assertFalse(gameBoard.hasWon("O"));
+    }
 }
